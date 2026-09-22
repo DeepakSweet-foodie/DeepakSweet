@@ -72,37 +72,22 @@ function filterMenu(category, button) {
 
 let cart = [];
 
-
 function addToCart(name, price) {
 
-  const existing =
-    cart.find(item => item.name === name);
-
+  const existing = cart.find(item => item.name === name);
 
   if (existing) {
-
     existing.quantity++;
-
   } else {
-
     cart.push({
-
       name: name,
       price: price,
       quantity: 1
-
     });
-
   }
 
-
   updateCart();
-
-
-  // Open cart automatically
-
   openCart();
-
 }
 
 
