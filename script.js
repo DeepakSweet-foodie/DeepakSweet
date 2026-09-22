@@ -110,27 +110,25 @@ function closeCart() {
   document.getElementById("cartOverlay").classList.remove("open");
 }
 
-/* ================= WHATSAPP ORDER ================= */
-function sendWhatsAppOrder() {
+/* ================= PLACE ORDER (DIRECT ON WEBSITE) ================= */
+function placeOrder() {
   if (cart.length === 0) {
     alert("Please add something to your cart first.");
     return;
   }
 
-  let message = "Hello Deepak Sweets! 👋%0A%0AI would like to place an order:%0A%0A";
-  let total = 0;
+  const cartItems = document.getElementById("cartItems");
+  
+  // Success message dikhayein
+  cartItems.innerHTML = `
+    <div style="text-align: center; padding: 40px 15px;">
+      <h3 style="color: #25d366; font-size: 24px; margin-bottom: 10px;">🎉 Order Successful!</h3>
+      <p style="color: #746b68; font-size: 14px; line-height: 1.6;">Aapka order successfully place ho gaya hai. Deepak Sweets team jald hi aapse sampark karegi!</p>
+    </div>
+  `;
 
-  cart.forEach(item => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    message += `• ${item.name} × ${item.quantity} — ₹${itemTotal}%0A`;
-  });
-
-  message += `%0A*Total: ₹${total}*%0A%0APlease confirm my order. Thank you! 😊`;
-
-  const phone = "919204965346";
-  const url = `https://wa.me/${phone}?text=${message}`;
-
-  window.open(url, "_blank");
+  // Cart ko reset kar dein
+  cart = [];
+  document.getElementById("cartCount").textContent = "0";
+  document.getElementById("cartTotal").textContent = "0";
 }
-
