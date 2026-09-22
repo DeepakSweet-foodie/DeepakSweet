@@ -110,10 +110,19 @@ function closeCart() {
   document.getElementById("cartOverlay").classList.remove("open");
 }
 
-/* ================= PLACE ORDER (DIRECT ON WEBSITE) ================= */
+/* ================= PLACE ORDER ================= */
 function placeOrder() {
   if (cart.length === 0) {
     alert("Please add something to your cart first.");
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const address = document.getElementById("customerAddress").value.trim();
+
+  if (!name || !phone || !address) {
+    alert("Kripya apna Naam, Mobile Number aur Address bharein!");
     return;
   }
 
@@ -121,14 +130,17 @@ function placeOrder() {
   
   // Success message dikhayein
   cartItems.innerHTML = `
-    <div style="text-align: center; padding: 40px 15px;">
-      <h3 style="color: #25d366; font-size: 24px; margin-bottom: 10px;">🎉 Order Successful!</h3>
-      <p style="color: #746b68; font-size: 14px; line-height: 1.6;">Aapka order successfully place ho gaya hai. Deepak Sweets team jald hi aapse sampark karegi!</p>
+    <div style="text-align: center; padding: 30px 15px;">
+      <h3 style="color: #25d366; font-size: 22px; margin-bottom: 10px;">🎉 Order Successful!</h3>
+      <p style="color: #746b68; font-size: 14px; line-height: 1.6;">Dhanyawad <strong>${name}</strong>! Aapka order successfully place ho gaya hai aur jald hi diye gaye address par bhej diya jayega.</p>
     </div>
   `;
 
-  // Cart ko reset kar dein
+  // Cart aur inputs ko reset kar dein
   cart = [];
   document.getElementById("cartCount").textContent = "0";
   document.getElementById("cartTotal").textContent = "0";
+  document.getElementById("customerName").value = "";
+  document.getElementById("customerPhone").value = "";
+  document.getElementById("customerAddress").value = "";
 }
