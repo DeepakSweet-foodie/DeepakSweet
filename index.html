@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepak Sweets & Family Restaurant | Latehar</title>
+  <meta name="description" content="Deepak Sweets & Family Restaurant, Latehar. Fresh sweets, snacks, breakfast and delicious food. Order on WhatsApp.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <span class="logo-icon">✦</span>
+      <span><strong>DEEPAK</strong><small>SWEETS</small></span>
+    </a>
+    <nav id="navMenu">
+      <a href="#home">Home</a><a href="#menu">Menu</a><a href="#offers">Offers</a>
+      <a href="#gallery">Gallery</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-btn" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-text">
+      <span class="badge">✨ Fresh • Delicious • Made With Love</span>
+      <h1>Taste That<br><span>Brings Everyone Together.</span></h1>
+      <p>Fresh sweets, delicious snacks and family dining — serving Latehar with love.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn primary">Explore Menu →</a>
+        <a href="https://wa.me/918340514990" target="_blank" class="btn whatsapp">💬 Order on WhatsApp</a>
+      </div>
+      <div class="hero-info">
+        <div><strong>★ 3.9</strong><span>Customer Rating</span></div>
+        <div><strong>100%</strong><span>Fresh & Delicious</span></div>
+        <div><strong>Daily</strong><span>Open 6:30 AM – 9 PM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container feature-grid">
+    <div class="feature"><div class="feature-icon">🍬</div><div><h3>Fresh Sweets</h3><p>Made fresh for you</p></div></div>
+    <div class="feature"><div class="feature-icon">🍽️</div><div><h3>Family Restaurant</h3><p>Perfect for everyone</p></div></div>
+    <div class="feature"><div class="feature-icon">🥘</div><div><h3>Delicious Food</h3><p>Quality ingredients</p></div></div>
+    <div class="feature"><div class="feature-icon">📦</div><div><h3>Bulk Orders</h3><p>For parties & events</p></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="mini-title">CUSTOMER FAVOURITES</span><h2>Popular Picks</h2>
+      <p>Some delicious choices our customers love.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-image"><img src="images/jalebi.jpg" alt="Fresh Jalebi"><span class="popular">Popular</span></div>
+        <div class="product-content"><h3>Fresh Jalebi</h3><p>Crispy, juicy and freshly prepared.</p><div class="product-bottom"><strong>₹25</strong><button onclick="addToCart('Fresh Jalebi',25)">+ Add</button></div></div>
+      </div>
+      <div class="product-card"><div class="product-image"><img src="images/samosa.jpg" alt="Samosa"></div>
+        <div class="product-content"><h3>Samosa</h3><p>Crispy outside, flavorful filling inside.</p><div class="product-bottom"><strong>₹25</strong><button onclick="addToCart('Samosa',25)">+ Add</button></div></div>
+      </div>
+      <div class="product-card"><div class="product-image"><img src="images/kachori.jpg" alt="Kachori"></div>
+        <div class="product-content"><h3>Kachori</h3><p>Fresh and delicious Indian snack.</p><div class="product-bottom"><strong>₹25</strong><button onclick="addToCart('Kachori',25)">+ Add</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="section-heading"><span class="mini-title">OUR MENU</span><h2>Something For Everyone</h2><p>Explore sweets, snacks and delicious food.</p></div>
+    <div class="category-buttons">
+      <button class="active" onclick="filterMenu('all',this)">All</button>
+      <button onclick="filterMenu('sweets',this)">🍬 Sweets</button>
+      <button onclick="filterMenu('snacks',this)">🥟 Snacks</button>
+      <button onclick="filterMenu('breakfast',this)">☀️ Breakfast</button>
+      <button onclick="filterMenu('south',this)">🍛 South Indian</button>
+      <button onclick="filterMenu('drinks',this)">🥤 Beverages</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <div class="menu-item" data-category="sweets"><img src="images/gulab-jamun.jpg" alt="Gulab Jamun"><div class="menu-info"><h3>Gulab Jamun</h3><p>Soft and juicy traditional sweet.</p><div><strong>₹25</strong><button onclick="addToCart('Gulab Jamun',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="sweets"><img src="images/rasgulla.jpg" alt="Rasgulla"><div class="menu-info"><h3>Rasgulla</h3><p>Soft, spongy and delicious.</p><div><strong>₹25</strong><button onclick="addToCart('Rasgulla',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="sweets"><img src="images/ladoo.jpg" alt="Ladoo"><div class="menu-info"><h3>Ladoo</h3><p>Traditional Indian sweet.</p><div><strong>₹25</strong><button onclick="addToCart('Ladoo',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="snacks"><img src="images/samosa.jpg" alt="Samosa"><div class="menu-info"><h3>Samosa</h3><p>Crispy and spicy Indian snack.</p><div><strong>₹25</strong><button onclick="addToCart('Samosa',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="snacks"><img src="images/kachori.jpg" alt="Kachori"><div class="menu-info"><h3>Kachori</h3><p>Crispy traditional snack.</p><div><strong>₹25</strong><button onclick="addToCart('Kachori',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="breakfast"><img src="images/idli.jpg" alt="Idli Sambar"><div class="menu-info"><h3>Idli Sambar</h3><p>Soft idli served with sambar.</p><div><strong>₹25</strong><button onclick="addToCart('Idli Sambar',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="south"><img src="images/dosa.jpg" alt="Masala Dosa"><div class="menu-info"><h3>Masala Dosa</h3><p>Crispy dosa with delicious filling.</p><div><strong>₹25</strong><button onclick="addToCart('Masala Dosa',25)">Add</button></div></div></div>
+      <div class="menu-item" data-category="drinks"><img src="images/cold-drink.jpg" alt="Cold Drink"><div class="menu-info"><h3>Cold Drinks</h3><p>Refreshing beverages.</p><div><strong>₹25</strong><button onclick="addToCart('Cold Drink',25)">Add</button></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="offers" id="offers">
+  <div class="container">
+    <div class="section-heading light"><span class="mini-title">SPECIAL OFFERS</span><h2>Make Your Celebration Sweeter</h2><p>Special orders for birthdays, parties and celebrations.</p></div>
+    <div class="offer-grid">
+      <div class="offer-card"><span class="offer-icon">🎂</span><h3>Birthday Special</h3><p>Sweet boxes and food packages for your special day.</p><a href="https://wa.me/918340514990?text=Hello%20Deepak%20Sweets%2C%20I%20want%20to%20know%20about%20Birthday%20Special%20orders." target="_blank">Enquire Now →</a></div>
+      <div class="offer-card featured-offer"><span class="offer-icon">🎁</span><h3>Sweet Gift Boxes</h3><p>Perfect for festivals, functions and gifting.</p><a href="https://wa.me/918340514990?text=Hello%20Deepak%20Sweets%2C%20I%20want%20to%20know%20about%20Sweet%20Gift%20Boxes." target="_blank">Order Now →</a></div>
+      <div class="offer-card"><span class="offer-icon">👨‍👩‍👧‍👦</span><h3>Family Orders</h3><p>Planning a gathering? Ask us about bulk orders.</p><a href="https://wa.me/918340514990?text=Hello%20Deepak%20Sweets%2C%20I%20want%20to%20know%20about%20Bulk%20Order%20offers." target="_blank">Enquire Now →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-heading"><span class="mini-title">OUR GALLERY</span><h2>A Taste You Can See</h2><p>Add real photos of your sweets, restaurant and food here.</p></div>
+    <div class="gallery-grid">
+      <img src="images/gallery-1.jpg" alt="Deepak Sweets"><img src="images/gallery-2.jpg" alt="Fresh sweets"><img src="images/gallery-3.jpg" alt="Restaurant food">
+      <img src="images/gallery-4.jpg" alt="Indian sweets"><img src="images/gallery-5.jpg" alt="Restaurant"><img src="images/gallery-6.jpg" alt="Food">
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-image"><img src="images/restaurant.jpg" alt="Deepak Sweets and Family Restaurant"></div>
+    <div class="about-content"><span class="mini-title">ABOUT DEEPAK SWEETS</span><h2>Good Food. Sweet Memories.</h2>
+      <p>Welcome to Deepak Sweets & Family Restaurant, where delicious food and sweet moments come together.</p>
+      <p>From fresh Indian sweets and snacks to breakfast and family dining, we aim to serve something delicious for everyone.</p>
+      <div class="about-points"><div>✓ Freshly prepared</div><div>✓ Family friendly</div><div>✓ Quality ingredients</div><div>✓ Bulk orders available</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="contact">
+  <div class="container location-grid">
+    <div class="location-info"><span class="mini-title">VISIT US</span><h2>Come & Enjoy With Us</h2>
+      <div class="contact-item"><span>📍</span><div><strong>Address</strong><p>NH-75, Chandandih,<br>Latehar, Jharkhand – 829206</p></div></div>
+      <div class="contact-item"><span>📞</span><div><strong>Phone</strong><p>83405 14990</p></div></div>
+      <div class="contact-item"><span>🕐</span><div><strong>Opening Hours</strong><p>Every Day<br>6:30 AM – 9:00 PM</p></div></div>
+      <div class="location-buttons"><a href="tel:+918340514990" class="btn primary">📞 Call Now</a><a href="https://wa.me/918340514990" target="_blank" class="btn whatsapp">💬 WhatsApp</a></div>
+    </div>
+    <div class="map-box"><iframe src="https://www.google.com/maps?q=Deepak%20Sweets%20Latehar%20Jharkhand&output=embed" loading="lazy" allowfullscreen></iframe></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div><div class="footer-logo">✦ DEEPAK SWEETS</div><p>Fresh sweets, delicious food and sweet memories.</p></div>
+    <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#menu">Menu</a><a href="#offers">Offers</a><a href="#gallery">Gallery</a></div>
+    <div><h4>Contact</h4><p>📍 Latehar, Jharkhand</p><p>📞 83405 14990</p><a href="https://wa.me/918340514990" target="_blank">💬 WhatsApp Us</a></div>
+  </div>
+  <div class="copyright">© <span id="year"></span> Deepak Sweets & Family Restaurant. All rights reserved.</div>
+</footer>
+
+<a href="https://wa.me/918340514990" target="_blank" class="floating-whatsapp">💬</a>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header"><h2>Your Order</h2><button onclick="closeCart()">×</button></div>
+  <div id="cartItems" class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
+  <div class="cart-footer"><div class="total"><span>Total</span><strong>₹<span id="cartTotal">0</span></strong></div>
+    <button class="whatsapp-order" onclick="sendWhatsAppOrder()">💬 Order on WhatsApp</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
