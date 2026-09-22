@@ -269,7 +269,7 @@ function sendWhatsAppOrder() {
 
 
   const phone =
-    "918340514990";
+    "919204965346";
 
 
   const url =
