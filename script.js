@@ -122,7 +122,7 @@ function placeOrder() {
   const address = document.getElementById("customerAddress").value.trim();
 
   if (!name || !phone || !address) {
-    alert("Kripya apna Naam, Mobile Number aur Address bharein!");
+    alert("please enter all your details!");
     return;
   }
 
