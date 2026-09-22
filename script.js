@@ -132,7 +132,7 @@ function placeOrder() {
   cartItems.innerHTML = `
     <div style="text-align: center; padding: 30px 15px;">
       <h3 style="color: #25d366; font-size: 22px; margin-bottom: 10px;">🎉 Order Successful!</h3>
-      <p style="color: #746b68; font-size: 14px; line-height: 1.6;">Dhanyawad <strong>${name}</strong>! Aapka order successfully place ho gaya hai aur jald hi diye gaye address par bhej diya jayega.</p>
+      <p style="color: #746b68; font-size: 14px; line-height: 1.6;">Thank you <strong>${name}</strong>!Your order has been successfully placed and will arrive at the given address soon.</p>
     </div>
   `;
 
