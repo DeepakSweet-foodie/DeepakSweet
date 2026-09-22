@@ -110,10 +110,10 @@ function closeCart() {
   document.getElementById("cartOverlay").classList.remove("open");
 }
 
-/* ================= PLACE ORDER ================= */
+/* ================= PROFESSIONAL PLACE ORDER ================= */
 function placeOrder() {
   if (cart.length === 0) {
-    alert("Please add something to your cart first.");
+    alert("Please add items to your cart first.");
     return;
   }
 
@@ -122,25 +122,34 @@ function placeOrder() {
   const address = document.getElementById("customerAddress").value.trim();
 
   if (!name || !phone || !address) {
-    alert("please enter all your details!");
+    alert("Please fill in your Name, Mobile Number, and Delivery Address!");
     return;
   }
 
-  const cartItems = document.getElementById("cartItems");
-  
-  // Success message dikhayein
-  cartItems.innerHTML = `
-    <div style="text-align: center; padding: 30px 15px;">
-      <h3 style="color: #25d366; font-size: 22px; margin-bottom: 10px;">🎉 Order Successful!</h3>
-      <p style="color: #746b68; font-size: 14px; line-height: 1.6;">Thank you <strong>${name}</strong>!Your order has been successfully placed and will arrive at the given address soon.</p>
-    </div>
-  `;
+  // Professional message format for the shop owner
+  let message = `🛍️ *NEW ORDER RECEIVED*%0A`;
+  message += `-----------------------------------%0A`;
+  message += `👤 *Customer Name:* ${name}%0A`;
+  message += `📞 *Phone Number:* ${phone}%0A`;
+  message += `📍 *Delivery Address:* ${address}%0A`;
+  message += `-----------------------------------%0A`;
+  message += `🛒 *Order Items:*%0A`;
 
-  // Cart aur inputs ko reset kar dein
-  cart = [];
-  document.getElementById("cartCount").textContent = "0";
-  document.getElementById("cartTotal").textContent = "0";
-  document.getElementById("customerName").value = "";
-  document.getElementById("customerPhone").value = "";
-  document.getElementById("customerAddress").value = "";
+  let total = 0;
+  cart.forEach(item => {
+    message += `• ${item.name} (Qty: ${item.quantity}) - ₹${item.price * item.quantity}%0A`;
+    total += item.price * item.quantity;
+  });
+
+  message += `-----------------------------------%0A`;
+  message += `💰 *Total Bill Amount: ₹${total}*%0A`;
+  message += `-----------------------------------%0A`;
+  message += `_Sent via Deepak Sweets Professional Website_`;
+
+  // Restaurant/Shop Owner WhatsApp Number
+  const ownerWhatsApp = "919204965346";
+  const whatsappUrl = `https://wa.me/${ownerWhatsApp}?text=${message}`;
+
+  // Open WhatsApp directly
+  window.open(whatsappUrl, '_blank');
 }
